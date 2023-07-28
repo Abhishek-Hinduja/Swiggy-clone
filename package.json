@@ -1,0 +1,24 @@
+{
+  "name": "react-development",
+  "version": "1.0.0",
+  "description": "\"It includes the knowledge of my work flow\"",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "browserlist":[
+    "last 2 chrome versions"
+  ]
+}
