@@ -1,0 +1,14 @@
+.restro-desc{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 16px;
+}
+
+.name{
+    font-size: 28px;
+    font-weight: 600;
+    color: #282828;
+    text-transform: capitalize;
+}

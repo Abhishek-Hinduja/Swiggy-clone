@@ -39,3 +39,12 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.restaurant-card{
+    width: 200px;
+    margin: 10px;
+    height: 200px;
+    padding: 10px;
+    height: 200px;
+    background-color: grey;
+}
