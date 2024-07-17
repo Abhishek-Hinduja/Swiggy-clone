@@ -2,40 +2,33 @@ import { useState, useEffect } from "react";
 import "./RestaurantMenu.css";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { swiggy_menu_api_URL } from "../Constants";
+import useRestaurant from "../utils/useRestaurant";
+
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  
   const { id } = useParams();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const resInfo = useRestaurant(id)
 
-  const fetchData = async () => {
-    const API = swiggy_menu_api_URL + id;
-    const data = await fetch(swiggy_menu_api_URL + id);
-
-    const json = await data.json();
-    console.log(json.data);
-    setResInfo(json.data);
-  };
 
   if (resInfo === null) {
     return <Shimmer />;
   }
 
-  const {
+  const {                                                                           
     name,
     cuisines,
     locality,
     avgRating,
     totalRatingsString,
     cloudinaryImageId,
-  } = resInfo?.cards[0]?.card?.card?.info;
+  } = resInfo?.cards[2]?.card?.card?.info;
+  console.log(resInfo?.cards[2]?.card?.card?.info)
 
   const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    console.log(itemCards)
 
   return (
     <div>
@@ -43,7 +36,7 @@ const RestaurantMenu = () => {
         <div className="restro-heading">
           <img
             src={
-              "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+              "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/" +
               cloudinaryImageId
             }
           />
@@ -60,7 +53,8 @@ const RestaurantMenu = () => {
         <ul>
           {itemCards.map((items) => (
             <li key={items.card.info.id}>
-              {items.card.info.name} - Rs.{items.card.info.price / 100}
+              {items.card.info.name} 
+              {/* - Rs.{items.card.info.price / 100} */}
             </li>
           ))}
         </ul>
