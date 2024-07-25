@@ -34,7 +34,7 @@ const Body = () => {
   return allrestaurant?.length === 0 ?
   <Shimmer/> : (
     <>
-      <div className="search-container">
+      <div className="search-container p-5 bg-pink-100 my-5">
         <input
           type="text"
           placeholder="Search"
@@ -43,7 +43,7 @@ const Body = () => {
           onChange={(e) => {
             setsearchtext(e.target.value);
           }}
-        />
+        /> Search
       </div>
       <div className="search-button">
         <button
@@ -53,10 +53,10 @@ const Body = () => {
             setfilterrestaurant(filteredData);
           }}
         >
-          Search
+          
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
       {
         filterRestaurant?.map((restaurant) => {
           return (
